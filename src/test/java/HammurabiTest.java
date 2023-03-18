@@ -1,14 +1,15 @@
-package hammurabi;
+package hammurabi.src.test.java;
 
 import static org.junit.Assert.*;
 
+import hammurabi.docs.Hammurabi;
 import org.junit.Before;
 import org.junit.Test;
 
 public class HammurabiTest {
-    
+
     Hammurabi ham;
-    
+
     boolean about(double expected, double actual) {
         return actual > 0.90 * expected && actual < 1.10 * expected;
     }
@@ -29,7 +30,7 @@ public class HammurabiTest {
         }
         int percentPlagues = number_of_plagues / 100;
         assertTrue("Number of plagues is about " + percentPlagues + ", not about 15%.",
-                   about(1500, number_of_plagues));
+                about(1500, number_of_plagues));
     }
 
     @Test
@@ -40,9 +41,9 @@ public class HammurabiTest {
             if (deaths > 0) break;
         }
         assertEquals("In a plague, " + deaths + "% of your people die, not 50%.",
-                     50, deaths);
+                50, deaths);
     }
-    
+
     @Test
     public final void testStarvationDeaths() {
         int deaths = ham.starvationDeaths(100, 1639);
@@ -88,8 +89,8 @@ public class HammurabiTest {
             }
         }
         int percentInfestations = infestations / 100;
-        assertTrue("Number of rat infestations is about " + percentInfestations + 
-                   ", not about 40%.", about(400, infestations));
+        assertTrue("Number of rat infestations is about " + percentInfestations +
+                ", not about 40%.", about(400, infestations));
     }
 
     @Test
@@ -101,7 +102,7 @@ public class HammurabiTest {
             if (percent == 0) continue;
             counts[percent] += 1;
             assertTrue("Rats ate " + percent + "% of your grain, not 10% to 30%.",
-                       percent >= 10 && percent <= 30);
+                    percent >= 10 && percent <= 30);
         }
         for (int j = 11; j < 30; j++) {
             assertTrue("Rats never ate " + j + "% of your grain.", counts[j] > 0);
@@ -120,6 +121,4 @@ public class HammurabiTest {
             assertTrue("You never have a land cost of " + j + " bushels per acre.", cost[j] > 0);
         }
     }
-
 }
-
