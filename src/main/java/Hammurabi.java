@@ -1,5 +1,7 @@
 package hammurabi.src.main.java;
 
+import java.awt.*;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -46,13 +48,13 @@ public class Hammurabi {
                 "|/     \\||/     \\||/     \\||/     \\|(_______)|/   \\__/|/     \\||/ \\___/ \\_______/\n" +
                 "                                                                                 ");
 
-        System.out.println("O great Harambe!\n" +
+        System.out.println("Congratulations! You are the newest ruler of Sumer.\n" +
                 "You are in year " + years + " of your ten year rule.\n" +
                 "In the previous year " + starvedPeople + " people starved to death.\n" +
                 "In the previous year " + immigrants + " people entered the kingdom.\n" +
                 "The population is now " + population + ".\n" +
                 "Harvesting was done at " + harvest + " bushels per acre.\n" +
-                "Rats destroyed " + grainsEatenByRats + " bushels, leaving " + bushelsInStorage + " bushels in storage.\n" +
+                "Watch out for rat infestation because rats destroyed " + grainsEatenByRats + " bushels, leaving " + bushelsInStorage + " bushels in storage.\n" +
                 "The city owns " + acresOwned + " acres of land.\n" +
                 "Land is currently worth " + price + " bushels per acre.\n");
     }
@@ -73,7 +75,8 @@ public class Hammurabi {
             years++;
 
             while (true){
-
+                System.out.println(
+                int userInput=
             }
 
 
@@ -84,6 +87,47 @@ public class Hammurabi {
 
 
         }
+
+    }
+    int getNumber(String message) { //
+        while (true) {
+            System.out.println(message);
+            try {
+                return Math.abs(scanner.nextInt());
+            }
+            catch (InputMismatchException e) {
+                System.out.println("\"" + scanner.next() + "\" isn't a number!");
+            }
+        }
+    }
+    public int askHowManyAcresToBuy(int price, int bushelsInStorage) {
+        int num = getNumber("How many acres of land do you wish to buy?\n");
+        if (num == 0) {
+            askHowManyAcresToSell();
+            break;
+        } else if
+            (num * price <= bushelsInStorage) {
+                acresOwned += num;
+                bushelsInStorage -= num * price;
+                break;
+            } else if {
+                System.out.println("You dont have enough bushels for that.");
+        }
+    }
+
+    public int askHowManyAcresToSell() {
+        while (true){
+            int num= getNumber("How many acres of land do you wish to sell?\n");
+            if (num > acresOwned){
+                System.out.println("You dont have enough land for that.");
+            }else if{
+
+            }
+    }
+
+
+
+
     }
 
 
